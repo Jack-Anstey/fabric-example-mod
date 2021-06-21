@@ -1,13 +1,13 @@
 # Custom Fabric Example Mod Fork
 
-##About
+## About
 This is a custom fork of [Fabric Example Mod](https://github.com/FabricMC/fabric-example-mod) to make it easier for first time modders to make sure that their
 installations of Fabric are working properly. Includes a "basic" and "complex" item as examples with textures and
 names.
 
-##Setup
+## Setup
 For setup, check out the [Wiki](https://fabricmc.net/wiki/tutorial:setup) and follow the steps for your particular IDE. I reccomend IntelliJ as that is where
 this code is written and executed.
 
-##License
+## License
 This uses the same CC0 license so please download and inspect the code if you would like to see if it works on your machine!
