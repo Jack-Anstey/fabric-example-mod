@@ -22,11 +22,11 @@ public class ExampleMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
+
 		//Register Items
 		Registry.register(Registry.ITEM, new Identifier("camp", "basic_item"), BASIC_ITEM);
 
 		Registry.register(Registry.ITEM, new Identifier("camp", "complex_item"), COMPLEX_ITEM);
 
-
-		}
+	}
 }
