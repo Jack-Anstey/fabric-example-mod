@@ -24,6 +24,9 @@ public class CustomToolMaterial implements ToolMaterial {
     //Repair ingredient for the tool that uses the material
     private Ingredient ingredient = Ingredient.ofItems(Items.POTATO);
 
+    //INSTANCE for ExampleMod so that the ToolMaterial can be referenced
+    public static final CustomToolMaterial INSTANCE = new CustomToolMaterial();
+
     @Override
     public int getDurability(){
         return durability;

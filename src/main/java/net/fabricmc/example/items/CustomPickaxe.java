@@ -5,9 +5,9 @@ import net.minecraft.item.ToolMaterial;
 
 import java.util.Properties;
 
-public class CustomTool extends PickaxeItem {
+public class CustomPickaxe extends PickaxeItem {
 
-    public CustomTool(ToolMaterial material,int attackDamage, float attackSpeed, Settings settings){
+    public CustomPickaxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings){
         super(material, attackDamage, attackSpeed, settings);
     }
 }
