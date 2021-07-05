@@ -5,6 +5,8 @@ This is a custom fork of [Fabric Example Mod](https://github.com/FabricMC/fabric
 installations of Fabric are working properly. Includes a "basic" and "complex" item as examples with textures and
 names.
 
+This branch has fully completed mods and a completed folder structure. I wanted folks to be able to make mods on their own too which is why this is a seperate branch.
+
 ## Setup
 For setup, check out the [Wiki](https://fabricmc.net/wiki/tutorial:setup) and follow the steps for your particular IDE. I reccomend IntelliJ as that is where
 this code is written and executed.
