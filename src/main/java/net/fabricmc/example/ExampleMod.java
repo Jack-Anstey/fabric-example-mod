@@ -1,10 +1,12 @@
 package net.fabricmc.example;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.example.enchantments.CustomEnchantment;
 import net.fabricmc.example.items.ComplexItem;
 import net.fabricmc.example.items.CustomPickaxe;
 import net.fabricmc.example.items.CustomToolMaterial;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SwordItem;
@@ -29,6 +31,12 @@ public class ExampleMod implements ModInitializer {
 	//everything but Swords and shovels are protected so you must write them with a separate class like this
 	public static ToolItem CUSTOM_PICKAXE = new CustomPickaxe(CustomToolMaterial.INSTANCE, 10, -3f, new Item.Settings().group(ItemGroup.TOOLS));
 
+	//Enchantments
+	public static Enchantment FROST = Registry.register(
+			Registry.ENCHANTMENT,
+			new Identifier("camp", "frost"),
+			new CustomEnchantment()
+	);
 
 	@Override
 	public void onInitialize() {

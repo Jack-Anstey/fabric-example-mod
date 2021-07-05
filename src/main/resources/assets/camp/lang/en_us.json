@@ -2,5 +2,6 @@
   "item.camp.complex_item": "Complex Item",
   "item.camp.basic_item": "Basic Item",
   "item.camp.custom_pickaxe": "Custom Pickaxe",
-  "item.camp.custom_sword": "Custom Sword"
+  "item.camp.custom_sword": "Custom Sword",
+  "enchantment.camp.frost": "Frost"
 }
