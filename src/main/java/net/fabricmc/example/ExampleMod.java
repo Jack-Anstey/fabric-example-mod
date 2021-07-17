@@ -5,6 +5,7 @@ import net.fabricmc.example.enchantments.CustomEnchantment;
 import net.fabricmc.example.items.ComplexItem;
 import net.fabricmc.example.items.CustomPickaxe;
 import net.fabricmc.example.items.CustomToolMaterial;
+import net.fabricmc.example.items.LightningKnives;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
@@ -25,6 +26,7 @@ public class ExampleMod implements ModInitializer {
 
 	//Complex Items
 	public static final ComplexItem COMPLEX_ITEM = new ComplexItem(new FabricItemSettings().group(ItemGroup.MISC));
+	public static final LightningKnives LIGHTNING_KNIVES = new LightningKnives(new FabricItemSettings().group(ItemGroup.MISC));
 
 	//Tools & Weapons
 	public static ToolItem CUSTOM_SWORD = new SwordItem(CustomToolMaterial.INSTANCE, 301, 20, new Item.Settings().group(ItemGroup.COMBAT));
@@ -47,6 +49,7 @@ public class ExampleMod implements ModInitializer {
 		//Register Items
 		Registry.register(Registry.ITEM, new Identifier("camp", "basic_item"), BASIC_ITEM);
 		Registry.register(Registry.ITEM, new Identifier("camp", "complex_item"), COMPLEX_ITEM);
+		Registry.register(Registry.ITEM, new Identifier("camp", "lightning_knives"), LIGHTNING_KNIVES);
 		Registry.register(Registry.ITEM, new Identifier("camp", "custom_pickaxe"), CUSTOM_PICKAXE);
 		Registry.register(Registry.ITEM, new Identifier("camp", "custom_sword"), CUSTOM_SWORD);
 	}
