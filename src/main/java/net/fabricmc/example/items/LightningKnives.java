@@ -22,7 +22,9 @@ public class LightningKnives extends Item {
         if(blockPos!=null){
             playerEntity.playSound(SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, 1.0f, 1.0f);
             UtilityFunctions.createMultipleStrikes(world, blockPos, 4, 10);
-            UtilityFunctions.createExplosion(world, blockPos, 10.0f);
+
+            //TODO: this is causing some character clipping issues but it still "works" so I'm keeping it for now
+            UtilityFunctions.createExplosion(world, blockPos, playerEntity,3.0f);
         }
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }

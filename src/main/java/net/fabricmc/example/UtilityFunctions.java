@@ -8,12 +8,12 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
 import java.util.Random;
-import java.util.stream.Stream;
 
 public class UtilityFunctions {
 
@@ -28,15 +28,11 @@ public class UtilityFunctions {
         RaycastContext.FluidHandling fluidMode = ignoreFluids ? RaycastContext.FluidHandling.NONE : RaycastContext.FluidHandling.ANY;
 
         RaycastContext raycastContext = new RaycastContext(player.getEyePos(), player.getEyePos().add(player.getRotationVector().multiply(distance)), RaycastContext.ShapeType.COLLIDER, fluidMode, player);
-                //(player.getEyePos(), player.getEyePos().add(player.getLookVec().scale(distance)), RayTraceContext.BlockMode.COLLIDER, fluidMode, player);
         BlockHitResult blockHit = player.getEntityWorld().raycast(raycastContext);
-        //BlockRayTraceResult blockHit = player.getEntityWorld().rayTraceBlocks(rayTraceContext);
         if(blockHit.getType() == HitResult.Type.MISS){
             return null;
         }
-        else {
-            return blockHit.getBlockPos();
-        }
+        return blockHit.getBlockPos();
     }
 
     /**
@@ -45,11 +41,10 @@ public class UtilityFunctions {
      * @param blockPos the position where the lightning will strike
      */
     public static void lightningStrike(World world, BlockPos blockPos){
-        if(world instanceof ServerWorld){
-            ServerWorld serverWorld = (ServerWorld) world;
-            LightningEntity lightningEntity = new LightningEntity(EntityType.LIGHTNING_BOLT, world);
-            lightningEntity.setPosition(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-            serverWorld.addEntities((Stream<Entity>) lightningEntity);
+        if (world instanceof ServerWorld serverWorld) {
+            LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(serverWorld);
+            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(blockPos));
+            serverWorld.spawnEntity(lightningEntity);
         }
     }
 
@@ -80,13 +75,13 @@ public class UtilityFunctions {
     }
 
     /**
-     * Makes a location for a given location and is a given size
+     * Makes an explosion for a given location and is a given size
      * @param world world in which the explosion is made
      * @param blockPos the position in the world where the explosion is centered
      * @param explosionRadius the size of the explosion (bigger is larger)
      */
-    public static void createExplosion(World world, BlockPos blockPos, float explosionRadius){
-        world.createExplosion(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), explosionRadius, Explosion.DestructionType.DESTROY);
+    public static void createExplosion(World world, BlockPos blockPos, PlayerEntity entity, float explosionRadius){
+        world.createExplosion(entity, blockPos.getX(), blockPos.getY(), blockPos.getZ(), explosionRadius, Explosion.DestructionType.DESTROY);
     }
 
 }
