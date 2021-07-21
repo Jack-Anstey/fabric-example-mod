@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "camp:block/complex_slab"
+    },
+    "type=double": {
+      "model": "camp:block/complex_block"
+    },
+    "type=top": {
+      "model": "camp:block/complex_slab"
+    }
+  }
+}

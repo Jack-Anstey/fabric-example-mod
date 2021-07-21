@@ -80,8 +80,8 @@ public class UtilityFunctions {
      * @param blockPos the position in the world where the explosion is centered
      * @param explosionRadius the size of the explosion (bigger is larger)
      */
-    public static void createExplosion(World world, BlockPos blockPos, PlayerEntity entity, float explosionRadius){
-        world.createExplosion(entity, blockPos.getX(), blockPos.getY(), blockPos.getZ(), explosionRadius, Explosion.DestructionType.DESTROY);
+    public static void createExplosion(World world, BlockPos blockPos, float explosionRadius){
+        world.createExplosion(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), explosionRadius, Explosion.DestructionType.DESTROY);
     }
 
 }

@@ -24,7 +24,7 @@ public class LightningKnives extends Item {
             UtilityFunctions.createMultipleStrikes(world, blockPos, 4, 10);
 
             //TODO: this is causing some character clipping issues but it still "works" so I'm keeping it for now
-            UtilityFunctions.createExplosion(world, blockPos, playerEntity,3.0f);
+            UtilityFunctions.createExplosion(world, blockPos, 3.0f);
         }
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }

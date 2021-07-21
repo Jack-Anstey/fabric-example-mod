@@ -4,5 +4,8 @@
   "item.camp.custom_pickaxe": "Custom Pickaxe",
   "item.camp.custom_sword": "Custom Sword",
   "enchantment.camp.frost": "Frost",
-  "item.camp.lightning_knives": "Loki's Knives"
+  "item.camp.lightning_knives": "Loki's Knives",
+  "block.camp.basic_block": "Basic Block",
+  "block.camp.complex_slab": "Complex Slab",
+  "block.camp.complex_block": "Complex Block"
 }
