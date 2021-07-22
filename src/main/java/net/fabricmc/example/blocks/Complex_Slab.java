@@ -18,6 +18,10 @@ import net.minecraft.world.World;
 
 public class Complex_Slab extends SlabBlock {
 
+    /**
+     * Constructor for the block
+     * @param settings
+     */
     public Complex_Slab(Settings settings) {
         super(settings);
     }
@@ -42,7 +46,7 @@ public class Complex_Slab extends SlabBlock {
     }
     */
 
-    /**
+    /*
      * This method changes the shape of a block to a slab. Adjust the numbers to change the size of the slab
      * or to put it into a different form entirely
      * @param state the current state of the block
