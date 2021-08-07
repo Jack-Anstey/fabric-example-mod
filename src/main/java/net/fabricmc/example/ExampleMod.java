@@ -4,6 +4,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.example.blocks.*;
 import net.fabricmc.example.enchantments.CustomEnchantment;
 import net.fabricmc.example.items.*;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -19,7 +21,16 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.*;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.YOffset;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 
 
 public class ExampleMod implements ModInitializer {
@@ -53,6 +64,36 @@ public class ExampleMod implements ModInitializer {
 
 	//Armor
 	public static final ArmorMaterial CUSTOM_MATERIAL = new CustomArmorMaterial();
+
+
+	//Ore Generation (have your custom blocks be added to an existing biome!)
+	/**
+	 * Ore Wool in the overworld
+	 */
+	private static ConfiguredFeature<?, ?> ORE_WOOL_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+					Blocks.WHITE_WOOL.getDefaultState(),
+					9)) // Vein size
+			.range(new RangeDecoratorConfig(
+					// You can also use one of the other height providers if you don't want a uniform distribution
+					UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(64)))) // Inclusive min and max height
+			.spreadHorizontally()
+			.repeat(20); // Number of veins per chunk
+
+	/**
+	 * Custom Block in the Overworld
+	 */
+	private static ConfiguredFeature<?, ?> COMPLEX_BLOCK_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+					ExampleMod.COMPLEX_BLOCK.getDefaultState(),
+					9)) // Vein size
+			.range(new RangeDecoratorConfig(
+					// You can also use one of the other height providers if you don't want a uniform distribution
+					UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(64)))) // Inclusive min and max height
+			.spreadHorizontally()
+			.repeat(20); // Number of veins per chunk
 
 	/**
 	 * This stuff is for beacons!
@@ -104,6 +145,22 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("camp", "lightning_knives"), LIGHTNING_KNIVES);
 		Registry.register(Registry.ITEM, new Identifier("camp", "custom_pickaxe"), CUSTOM_PICKAXE);
 		Registry.register(Registry.ITEM, new Identifier("camp", "custom_sword"), CUSTOM_SWORD);
+
+		//Register Ore Overworld Generation
+
+		/*
+		RegistryKey<ConfiguredFeature<?, ?>> oreWoolOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
+				new Identifier("camp", "ore_wool_overworld"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolOverworld.getValue(), ORE_WOOL_OVERWORLD);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreWoolOverworld);
+		*/
+
+
+		RegistryKey<ConfiguredFeature<?, ?>> complexBlockOverWorld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
+				new Identifier("camp", "complex_block_overworld"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, complexBlockOverWorld.getValue(), COMPLEX_BLOCK_OVERWORLD);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, complexBlockOverWorld);
+
 
 		/*
 		//Register Beacons

@@ -41,10 +41,10 @@ public class UtilityFunctions {
      * @param blockPos the position where the lightning will strike
      */
     public static void lightningStrike(World world, BlockPos blockPos){
-        if (world instanceof ServerWorld serverWorld) {
-            LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(serverWorld);
+        if (world instanceof ServerWorld) {
+            LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
             lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(blockPos));
-            serverWorld.spawnEntity(lightningEntity);
+            world.spawnEntity(lightningEntity);
         }
     }
 
