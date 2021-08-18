@@ -32,8 +32,7 @@ public class CustomArmorMixin {
         }
         if(hasAllArmorWorn){
             //status effect code here
-            //((LivingEntity)(Object)this).addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 100));
-            System.out.println("You shouldn't see me!");
+            ((LivingEntity)(Object)this).addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 150));
         }
     }
 }
