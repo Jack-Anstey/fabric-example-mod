@@ -1,0 +1,15 @@
+{
+  "item.camp.complex_item": "Complex Item",
+  "item.camp.basic_item": "Basic Item",
+  "item.camp.custom_pickaxe": "Custom Pickaxe",
+  "item.camp.custom_sword": "Custom Sword",
+  "enchantment.camp.frost": "Frost",
+  "item.camp.lightning_knives": "Loki's Knives",
+  "block.camp.basic_block": "Basic Block",
+  "block.camp.complex_slab": "Complex Slab",
+  "block.camp.complex_block": "Complex Block",
+  "item.camp.customhelm": "Custom Helm",
+  "item.camp.customchest": "Custom Chest",
+  "item.camp.customlegs": "Custom Legs",
+  "item.camp.customboots": "Custom Boots"
+}

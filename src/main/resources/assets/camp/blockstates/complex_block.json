@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "camp:block/complex_block" }
+  }
+}
