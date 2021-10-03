@@ -1,4 +1,4 @@
-package net.fabricmc.example.items;
+package net.fabricmc.camp.items;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

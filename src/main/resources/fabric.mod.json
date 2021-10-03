@@ -19,7 +19,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.fabricmc.camp.ExampleMod",
+      "net.fabricmc.camp.entities.EntityTesting"
+    ],
+    "client": [
+      "net.fabricmc.camp.entities.EntityTestingClient"
     ]
   },
   "mixins": [

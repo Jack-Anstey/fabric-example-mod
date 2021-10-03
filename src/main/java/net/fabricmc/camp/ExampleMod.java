@@ -1,26 +1,21 @@
-package net.fabricmc.example;
+package net.fabricmc.camp;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.example.blocks.*;
-import net.fabricmc.example.enchantments.CustomEnchantment;
-import net.fabricmc.example.items.*;
+import net.fabricmc.camp.blocks.*;
+import net.fabricmc.camp.enchantments.CustomEnchantment;
+import net.fabricmc.camp.items.*;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.*;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -44,7 +39,7 @@ public class ExampleMod implements ModInitializer {
 	//Complex Items
 	public static final ComplexItem COMPLEX_ITEM = new ComplexItem(new FabricItemSettings().group(ItemGroup.MISC));
 	public static final LightningKnives LIGHTNING_KNIVES = new LightningKnives(new FabricItemSettings().group(ItemGroup.MISC));
-	public static final RegeneratingTotem REGENERATING_TOTEM = new RegeneratingTotem(new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1)); //adjust the max stack size
+	public static final RegeneratingTotem REGENERATING_TOTEM = new RegeneratingTotem(new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1).maxDamageIfAbsent(13).maxDamage(13).rarity(Rarity.EPIC)); //adjust the max stack size
 	//Tools & Weapons
 	public static ToolItem CUSTOM_SWORD = new SwordItem(CustomToolMaterial.INSTANCE, 301, 20, new Item.Settings().group(ItemGroup.COMBAT));
 	//everything but Swords and shovels are protected so you must write them with a separate class like this

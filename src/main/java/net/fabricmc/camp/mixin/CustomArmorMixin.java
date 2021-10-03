@@ -1,12 +1,10 @@
-package net.fabricmc.example.mixin;
+package net.fabricmc.camp.mixin;
 
-import net.fabricmc.example.items.CustomArmor;
-import net.minecraft.entity.EquipmentSlot;
+import net.fabricmc.camp.items.CustomArmor;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Arm;
 import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

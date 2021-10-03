@@ -1,4 +1,4 @@
-package net.fabricmc.example.items;
+package net.fabricmc.camp.items;
 
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;

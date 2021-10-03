@@ -1,6 +1,5 @@
-package net.fabricmc.example.items;
+package net.fabricmc.camp.items;
 
-import net.fabricmc.example.ExampleMod;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;

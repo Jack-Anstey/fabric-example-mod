@@ -1,6 +1,6 @@
-package net.fabricmc.example.mixin;
+package net.fabricmc.camp.mixin;
 
-import net.fabricmc.example.items.CustomArmor;
+import net.fabricmc.camp.items.CustomArmor;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;

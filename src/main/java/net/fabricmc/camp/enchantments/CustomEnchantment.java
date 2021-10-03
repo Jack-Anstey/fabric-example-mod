@@ -1,4 +1,4 @@
-package net.fabricmc.example.enchantments;
+package net.fabricmc.camp.enchantments;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;

@@ -11,5 +11,8 @@
   "item.camp.customhelm": "Custom Helm",
   "item.camp.customchest": "Custom Chest",
   "item.camp.customlegs": "Custom Legs",
-  "item.camp.customboots": "Custom Boots"
+  "item.camp.customboots": "Custom Boots",
+  "item.camp.regen_totem": "Regenerating Totem",
+  "item.camp.regen_totem.tooltip": "Current Health: %d",
+  "item.camp.regen_totem.tooltipred": "Lol why are you looking here but in red"
 }

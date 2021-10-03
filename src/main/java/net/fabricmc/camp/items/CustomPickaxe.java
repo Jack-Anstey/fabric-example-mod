@@ -1,9 +1,7 @@
-package net.fabricmc.example.items;
+package net.fabricmc.camp.items;
 
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
-
-import java.util.Properties;
 
 public class CustomPickaxe extends PickaxeItem {
 

@@ -1,6 +1,5 @@
-package net.fabricmc.example;
+package net.fabricmc.camp;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
