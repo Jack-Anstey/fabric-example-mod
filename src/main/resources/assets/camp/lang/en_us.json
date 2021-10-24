@@ -14,5 +14,7 @@
   "item.camp.customboots": "Custom Boots",
   "item.camp.regen_totem": "Regenerating Totem",
   "item.camp.regen_totem.tooltip": "Current Health: %d",
-  "item.camp.regen_totem.tooltipred": "Lol why are you looking here but in red"
+  "item.camp.regen_totem.tooltipred": "Lol why are you looking here but in red",
+  "entity.camp.examplehostileentity": "Example Hostile Entity",
+  "item.camp.example_hostile_entity_spawn_egg": "Example Hostile Entity Spawn Egg"
 }

@@ -3,16 +3,21 @@ package net.fabricmc.camp;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.camp.blocks.*;
 import net.fabricmc.camp.enchantments.CustomEnchantment;
+import net.fabricmc.camp.entities.EntityTesting;
+import net.fabricmc.camp.entities.living.hostile.ExampleHostileEntity;
 import net.fabricmc.camp.items.*;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.impl.object.builder.FabricEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -60,6 +65,8 @@ public class ExampleMod implements ModInitializer {
 	//Armor
 	public static final ArmorMaterial CUSTOM_MATERIAL = new CustomArmorMaterial();
 
+	//Spawn eggs
+	public static final Item EXAMPLE_ENTITY_SPAWN_EGG = new SpawnEggItem(EntityTesting.exampleHostileEntityEntityType, 0x0f2ca3, 0x2ce861, new Item.Settings().group(ItemGroup.MISC));
 
 	//Ore Generation (have your custom blocks be added to an existing biome!)
 	/**
@@ -141,6 +148,10 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("camp", "custom_pickaxe"), CUSTOM_PICKAXE);
 		Registry.register(Registry.ITEM, new Identifier("camp", "custom_sword"), CUSTOM_SWORD);
 		Registry.register(Registry.ITEM, new Identifier("camp", "regen_totem"), REGENERATING_TOTEM);
+
+		//Register Spawn Eggs
+		Registry.register(Registry.ITEM, new Identifier("camp", "example_hostile_entity_spawn_egg"), EXAMPLE_ENTITY_SPAWN_EGG);
+
 
 		//Register Ore Overworld Generation
 
