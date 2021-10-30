@@ -35,6 +35,8 @@ import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 
 public class ExampleMod implements ModInitializer {
 
+	//Recipes website --> https://crafting.thedestruc7i0n.ca/
+
 	/*This is where instances of items are created
 	* Organized by comments and not much else*/
 
