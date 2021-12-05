@@ -4,9 +4,9 @@
   "version": "${version}",
 
   "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "This is an collection of example mods! Feel free to take a look",
   "authors": [
-    "Me!"
+    "Jack Anstey"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.fabricmc.camp.ExampleMod"
     ]
   },
   "mixins": [
