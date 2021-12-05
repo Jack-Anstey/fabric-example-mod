@@ -8,7 +8,7 @@ names.
 This branch has fully completed mods and a completed folder structure. I wanted folks to be able to make mods on their own too which is why this is a seperate branch.
 
 ## Version
-This branch is currently setup to work with Minecraft 1.18. Future and backwards compatibilty (as with any Minecraft mod) is not guaranteed. 
+This branch is currently setup to work with Minecraft 1.18. Future and backwards compatibilty (as with any Minecraft mod) is not guarunteed. 
 
 ## Setup
 For setup, check out the [Wiki](https://fabricmc.net/wiki/tutorial:setup) and follow the steps for your particular IDE. I reccomend IntelliJ as that is where
