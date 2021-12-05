@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "bottom": "camp:block/complex_slab",
-    "top": "camp:block/complex_slab",
-    "side": "camp:block/complex_slab"
-  }
-}
