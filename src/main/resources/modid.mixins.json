@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.fabricmc.camp.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "CustomWeaponStatusEffectMixin",
+    "RegenTotemMixin"
+  ],
+  "client": [
+    "ExampleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
