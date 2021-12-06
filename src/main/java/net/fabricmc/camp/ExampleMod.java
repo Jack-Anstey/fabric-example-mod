@@ -13,14 +13,17 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
@@ -28,6 +31,8 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
+
+import java.util.List;
 
 
 public class ExampleMod implements ModInitializer {
@@ -66,6 +71,7 @@ public class ExampleMod implements ModInitializer {
 
 	//Spawn eggs
 	public static final Item EXAMPLE_ENTITY_SPAWN_EGG = new SpawnEggItem(EntityTesting.exampleHostileEntityEntityType, 0x0f2ca3, 0x2ce861, new Item.Settings().group(ItemGroup.MISC));
+
 
 	//Ore Generation (have your custom blocks be added to an existing biome!)
 	/**

@@ -16,5 +16,6 @@
   "item.camp.regen_totem.tooltip": "Current Health: %d",
   "item.camp.regen_totem.tooltipred": "Lol why are you looking here but in red",
   "entity.camp.examplehostileentity": "Example Hostile Entity",
-  "item.camp.example_hostile_entity_spawn_egg": "Example Hostile Entity Spawn Egg"
+  "item.camp.example_hostile_entity_spawn_egg": "Example Hostile Entity Spawn Egg",
+  "item.camp.custom_armor.tooltip": "Why hello there"
 }
