@@ -5,6 +5,7 @@ import net.fabricmc.camp.blocks.Complex_Block;
 import net.fabricmc.camp.blocks.Complex_Slab;
 import net.fabricmc.camp.enchantments.CustomEnchantment;
 import net.fabricmc.camp.entities.EntityTesting;
+import net.fabricmc.camp.fluids.JelloFluid;
 import net.fabricmc.camp.items.*;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -12,10 +13,12 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FluidBlock;
 import net.minecraft.block.Material;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -27,9 +30,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 
 import java.util.List;
@@ -71,6 +72,13 @@ public class ExampleMod implements ModInitializer {
 
 	//Spawn eggs
 	public static final Item EXAMPLE_ENTITY_SPAWN_EGG = new SpawnEggItem(EntityTesting.exampleHostileEntityEntityType, 0x0f2ca3, 0x2ce861, new Item.Settings().group(ItemGroup.MISC));
+
+	//Custom Fluid
+	public static FlowableFluid STILL_JELLO; //define still
+	public static FlowableFluid FLOWING_JELLO; //define flowing
+	public static Item JELLO_BUCKET; //define bucket
+	public static Block JELLO; //define block
+	public static LakeFeature JELLO_LAKE; //generate in the world
 
 
 	//Ore Generation (have your custom blocks be added to an existing biome!)
@@ -161,6 +169,26 @@ public class ExampleMod implements ModInitializer {
 		//Register Spawn Eggs
 		Registry.register(Registry.ITEM, new Identifier("camp", "example_hostile_entity_spawn_egg"), EXAMPLE_ENTITY_SPAWN_EGG);
 
+		//Custom Fluid
+		STILL_JELLO = Registry.register(Registry.FLUID, new Identifier("camp", "jello"), new JelloFluid.Still());
+		FLOWING_JELLO = Registry.register(Registry.FLUID, new Identifier("camp", "flowing_jello"), new JelloFluid.Flowing());
+		JELLO_BUCKET = Registry.register(Registry.ITEM, new Identifier("camp", "jello_bucket"),
+				new BucketItem(STILL_JELLO, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
+
+		//Block for custom fluid
+		JELLO = Registry.register(Registry.BLOCK, new Identifier("camp", "jello"), new FluidBlock(STILL_JELLO, FabricBlockSettings.copy(Blocks.WATER)){});
+
+		/*
+		//Generation in the world for Custom Fluid
+		JELLO_LAKE = Registry.register(Registry.FEATURE, new Identifier("camp", "jello_lake"), new LakeFeature(SingleStateFeatureConfig::deserialize));
+
+		// generate in swamps, similar to water lakes, but with a chance of 40 (the higher the number, the lower the generation chance)
+		Biomes.SWAMP.addFeature(
+				GenerationStep.Feature.LOCAL_MODIFICATIONS,
+				JELLO_LAKE.configure(new SingleStateFeatureConfig(JELLO.getDefaultState()))
+						.createDecoratedFeature(Decorator.WATER_LAKE.configure(new ChanceDecoratorConfig(40)))
+		);
+		*/
 
 		//Register Ore Overworld Generation
 

@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LivingEntity.class)
 public abstract class CustomWeaponStatusEffectMixin {
     //@Shadow @Final private getEquippedStack(EquipmentSlot.MAINHAND) held;
-    //TODO Mobs
+
     @Shadow @Final public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
     @Inject(at = @At("HEAD"), method = "tick")

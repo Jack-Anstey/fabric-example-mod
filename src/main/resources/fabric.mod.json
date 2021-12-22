@@ -9,8 +9,8 @@
     "Jack Anstey"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://jackanstey.com/contact.html",
+    "sources": "https://github.com/Jack-Anstey/fabric-example-mod"
   },
 
   "license": "CC0-1.0",
@@ -20,6 +20,8 @@
   "entrypoints": {
     "main": [
       "net.fabricmc.camp.ExampleMod"
+    ], "client": [
+      "net.fabricmc.camp.ExampleModClient"
     ]
   },
   "mixins": [
