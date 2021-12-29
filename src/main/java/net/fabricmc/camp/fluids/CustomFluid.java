@@ -57,7 +57,8 @@ public abstract class CustomFluid extends FlowableFluid {
      */
     @Override
     protected int getFlowSpeed(WorldView worldView) {
-        return 2;
+        //false for Overworld, true for Nether. Taken directly from the LavaFluid class
+        return worldView.getDimension().isUltrawarm() ? 2 : 8;
     }
 
     /**
@@ -65,7 +66,8 @@ public abstract class CustomFluid extends FlowableFluid {
      */
     @Override
     protected int getLevelDecreasePerBlock(WorldView worldView) {
-        return 2;
+        //false for Overworld, true for Nether. Taken directly from the LavaFluid class
+        return worldView.getDimension().isUltrawarm() ? 10 : 1;
     }
 
     /**
@@ -73,7 +75,8 @@ public abstract class CustomFluid extends FlowableFluid {
      */
     @Override
     public int getTickRate(WorldView worldView) {
-        return 50;
+        //false for Overworld, true for Nether. Taken directly from the LavaFluid class
+        return worldView.getDimension().isUltrawarm() ? 1 : 50;
     }
 
     /**
