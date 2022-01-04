@@ -4,10 +4,13 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 
 public class ExampleModClient implements ClientModInitializer {
+
 
     @Override
     public void onInitializeClient() {
@@ -21,15 +24,23 @@ public class ExampleModClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ExampleMod.STILL_JELLO, ExampleMod.FLOWING_JELLO);
 
-        //if you want to use custom textures they needs to be registered.
+        //if you want to use custom textures they need to be registered.
         //In this example this is unnecessary because the vanilla water textures are already registered.
         //To register your custom textures use this method.
-        //ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register((atlasTexture, registry) -> {
-        //    registry.register(new Identifier("modid:block/custom_fluid_still"));
-        //    registry.register(new Identifier("modid:block/custom_fluid_flowing"));
-        //});
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register((atlasTexture, registry) -> {
+            registry.register(new Identifier("camp:block/jello_still"));
+            registry.register(new Identifier("camp:block/jello_flowing"));
+        });
 
         // ...
         //end of fluid rendering
+
+
+        //Custom block creation
+        //BlockRenderLayerMap.INSTANCE.putBlock(ExampleMod.COMPLEX_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ExampleMod.COMPLEX_BLOCK, RenderLayer.getTranslucent());
+        // Replace `RenderLayer.getCutout()` with `RenderLayer.getTranslucent()` if you have a translucent texture.
+
+
     }
 }

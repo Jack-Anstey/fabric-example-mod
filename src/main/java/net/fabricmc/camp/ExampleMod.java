@@ -65,7 +65,8 @@ public class ExampleMod implements ModInitializer {
 	//Blocks (JSON MODEL NEEDED FOR BOTH BLOCK AND ITEM FOLDER)
 	public static final Block BASIC_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(0.4f));
 	public static final Complex_Slab COMPLEX_SLAB = new Complex_Slab(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
-	public static final Complex_Block COMPLEX_BLOCK = new Complex_Block(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
+	//public static final Complex_Block COMPLEX_BLOCK = new Complex_Block(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
+	public static final Complex_Block COMPLEX_BLOCK = new Complex_Block(); //for the translucent texture
 
 	//Armor
 	public static final ArmorMaterial CUSTOM_MATERIAL = new CustomArmorMaterial();
