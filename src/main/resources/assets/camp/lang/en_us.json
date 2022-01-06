@@ -21,5 +21,7 @@
   "item.camp.jello_bucket": "Jello Bucket",
   "block.camp.jello": "Jello",
   "fluid.camp.jello": "Still Jello",
-  "fluid.camp.flowing_jello": "Flowing Jello"
+  "fluid.camp.flowing_jello": "Flowing Jello",
+  "block.camp.four_sided_furnace": "Four Sided Furnace",
+  "item.camp.four_sided_furnace": "Four Sided Furnace"
 }

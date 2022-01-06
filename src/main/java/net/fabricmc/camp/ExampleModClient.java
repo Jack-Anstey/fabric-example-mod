@@ -1,7 +1,10 @@
 package net.fabricmc.camp;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.camp.blocks.BlockModelExample;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
+import net.fabricmc.fabric.api.client.model.ModelResourceProvider;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
@@ -15,7 +18,9 @@ public class ExampleModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        //Fluid Rendering
+        /**
+         * Fluid Rendering
+         */
         FluidRenderHandlerRegistry.INSTANCE.register(ExampleMod.STILL_JELLO, ExampleMod.FLOWING_JELLO, new SimpleFluidRenderHandler(
                 new Identifier("minecraft:block/water_still"),
                 new Identifier("minecraft:block/water_flow"),
@@ -32,15 +37,18 @@ public class ExampleModClient implements ClientModInitializer {
             registry.register(new Identifier("camp:block/jello_flowing"));
         });
 
-        // ...
-        //end of fluid rendering
 
-
-        //Custom block creation
+        /**
+         * Custom block creation
+         */
         //BlockRenderLayerMap.INSTANCE.putBlock(ExampleMod.COMPLEX_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ExampleMod.COMPLEX_BLOCK, RenderLayer.getTranslucent());
         // Replace `RenderLayer.getCutout()` with `RenderLayer.getTranslucent()` if you have a translucent texture.
 
 
+        /**
+         * Block Models
+         */
+        ModelLoadingRegistry.INSTANCE.registerResourceProvider(rm -> new ExampleModelProvider());
     }
 }

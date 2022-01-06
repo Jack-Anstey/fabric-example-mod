@@ -1,6 +1,7 @@
 package net.fabricmc.camp;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.camp.blocks.BlockModelExample;
 import net.fabricmc.camp.blocks.Complex_Block;
 import net.fabricmc.camp.blocks.Complex_Slab;
 import net.fabricmc.camp.enchantments.CustomEnchantment;
@@ -67,6 +68,7 @@ public class ExampleMod implements ModInitializer {
 	public static final Complex_Slab COMPLEX_SLAB = new Complex_Slab(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
 	//public static final Complex_Block COMPLEX_BLOCK = new Complex_Block(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
 	public static final Complex_Block COMPLEX_BLOCK = new Complex_Block(); //for the translucent texture
+	public static final Block FOUR_SIDED_FURNACE = new Block(FabricBlockSettings.of(Material.STONE));
 
 	//Armor
 	public static final ArmorMaterial CUSTOM_MATERIAL = new CustomArmorMaterial();
@@ -158,6 +160,8 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier("camp", "complex_block"), COMPLEX_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier("camp", "complex_block"), new BlockItem(COMPLEX_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
 
+		Registry.register(Registry.BLOCK, new Identifier("camp", "four_sided_furnace"), FOUR_SIDED_FURNACE);
+		Registry.register(Registry.ITEM, new Identifier("camp", "four_sided_furnace"), new BlockItem(FOUR_SIDED_FURNACE, new FabricItemSettings().group(ItemGroup.MISC)));
 
 		//Register Items
 		Registry.register(Registry.ITEM, new Identifier("camp", "basic_item"), BASIC_ITEM);
