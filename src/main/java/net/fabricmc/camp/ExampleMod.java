@@ -161,7 +161,7 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("camp", "complex_block"), new BlockItem(COMPLEX_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
 
 		Registry.register(Registry.BLOCK, new Identifier("camp", "four_sided_furnace"), FOUR_SIDED_FURNACE);
-		Registry.register(Registry.ITEM, new Identifier("camp", "four_sided_furnace"), new BlockItem(FOUR_SIDED_FURNACE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("camp", "four_sided_furnace"), new BlockItem(FOUR_SIDED_FURNACE, new FabricItemSettings().group(ItemGroup.MISC).food(new FoodComponent.Builder().hunger(1).saturationModifier(6.0f).snack().meat().alwaysEdible().build())));
 
 		//Register Items
 		Registry.register(Registry.ITEM, new Identifier("camp", "basic_item"), BASIC_ITEM);
